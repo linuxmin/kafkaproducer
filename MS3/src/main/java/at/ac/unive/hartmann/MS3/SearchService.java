@@ -28,4 +28,10 @@ public class SearchService {
         return advertisement;
     }
 
+    public void deleteAdvertisement(Advertisement advertisement){
+        Advertisement advertisementToDelete = searchRepository.
+                findAdvertisementByAdForeignId(advertisement.getAdForeignId());
+        searchRepository.delete(advertisementToDelete);
+    }
+
 }
