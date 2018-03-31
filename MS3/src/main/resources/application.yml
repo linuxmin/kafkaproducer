@@ -1,0 +1,14 @@
+spring.jpa.database: "POSTGRESQL"
+spring.datasource.platform:  "postgres"
+spring.jpa.show-sql: "true"
+spring.database.driverClassName: "org.postgresql.Driver"
+spring.datasource.url: "jdbc:postgresql://mydb.cxedaekoonju.eu-central-1.rds.amazonaws.com:5432/mydb"
+spring.datasource.username: "linuxmin"
+spring.datasource.password: "Lasvegas2010"
+spring.datasource.testWhileIdle: "true"
+spring.datasource.validationQuery: "SELECT 1"
+spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
