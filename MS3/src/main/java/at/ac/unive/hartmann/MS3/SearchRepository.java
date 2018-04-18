@@ -11,4 +11,5 @@ public interface SearchRepository extends CrudRepository<Advertisement, String> 
     public Advertisement findAdvertisementByAdItemId(Integer adItemId);
     public List<Advertisement> findAdvertisementByAdItemNameContainingIgnoreCase(String adItemName);
     public Advertisement findAdvertisementByAdForeignId(String adForeignId);
+
 }

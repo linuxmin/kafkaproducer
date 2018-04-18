@@ -22,7 +22,9 @@ public class SearchServiceController {
     @RequestMapping(value="/advertisements/create/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Advertisement createAdvertisement (@RequestBody Advertisement advertisement) {
-        return searchService.saveAdvertisement(advertisement);
+        Advertisement savedadvertisement = searchService.saveAdvertisement(advertisement);
+        //code
+        return savedadvertisement;
     }
 
     @RequestMapping(value="/advertisements/update/", method = RequestMethod.POST)
@@ -34,5 +36,12 @@ public class SearchServiceController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAdvertisement (@RequestBody Advertisement advertisement) {
         searchService.deleteAdvertisement(advertisement);
+    }
+
+    @RequestMapping(value="/alerts/create/", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public AdAlert createAdvertisement (@RequestBody AdAlert adAlert) {
+        AdAlert savedAdAlert = searchService.saveAdAlert(adAlert);
+        return savedAdAlert;
     }
 }

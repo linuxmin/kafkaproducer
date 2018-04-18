@@ -3,7 +3,7 @@ package at.ac.unive.hartmann.MS3;
 import javax.persistence.*;
 
 @Entity
-@Table(name="advertisements")
+@Table(name="advertisement")
 public class Advertisement {
     @Id
     @GeneratedValue

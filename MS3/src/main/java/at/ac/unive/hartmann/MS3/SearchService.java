@@ -11,12 +11,19 @@ public class SearchService {
     @Autowired
     private SearchRepository searchRepository;
 
+    @Autowired
+    private AdAlertRepository adAlertRepository;
+
+    @Autowired
+    SimpleSourceBean simpleSourceBean;
+
     public List<Advertisement> getAdvertisementByName(String adItemName){
         return searchRepository.findAdvertisementByAdItemNameContainingIgnoreCase(adItemName);
     }
 
     public Advertisement saveAdvertisement(Advertisement advertisement){
         searchRepository.save(advertisement);
+        simpleSourceBean.publishAdvertisementChange("SAVE", advertisement.getAdItemId(),advertisement.getAdItemName(),advertisement.getAdItemPrice());
         return searchRepository.findAdvertisementByAdItemId(advertisement.getAdItemId());
     }
 
@@ -32,6 +39,14 @@ public class SearchService {
         Advertisement advertisementToDelete = searchRepository.
                 findAdvertisementByAdForeignId(advertisement.getAdForeignId());
         searchRepository.delete(advertisementToDelete);
+    }
+
+    public AdAlert saveAdAlert(AdAlert adAlert){
+        return adAlertRepository.save(adAlert);
+    }
+
+    public List<AdAlert> getAdAlertByAdItemName(String adItemName){
+        return adAlertRepository.findAdAlertByAdItemName(adItemName);
     }
 
 }
